@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
-export const Input = ({ value, onChange, props, placeholder }) => {
+export const Input = ({ value, onChange, placeholder, ...rest }) => {
   return (
     <StyledInput
       value={value}
       onChange={onChange}
       placeholder={placeholder}
-      {...props}
+      {...rest}
     />
   );
 };

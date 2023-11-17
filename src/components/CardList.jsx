@@ -1,13 +1,18 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { CardItem } from "./CardItem";
 import { Box, styled } from "@mui/material";
+import { getTodos } from "../redux/todoReducer";
 
 export const TodoList = () => {
-  const card = useSelector((task) => task);
+  const todos = useSelector((state) => state.todoReducer.todos);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getTodos())
+  }, [dispatch])
   return (
     <CardsContainer>
-      {card.map((card) => (
+      {todos.map((card) => (
         <CardItem key={card.id} card={card} />
       ))}
     </CardsContainer>
