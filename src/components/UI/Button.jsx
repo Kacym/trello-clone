@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-export const Button = ({ styles, title, onClick, ...rest }) => {
+export const Button = ({ type, styles, children, onClick, ...rest }) => {
   return (
-    <StyledButton style={styles} onClick={onClick} {...rest}>
-      {title}
+    <StyledButton type={type} style={styles} onClick={onClick} {...rest}>
+      {children}
     </StyledButton>
   );
 };

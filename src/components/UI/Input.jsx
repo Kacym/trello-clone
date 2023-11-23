@@ -1,15 +1,6 @@
 import React from "react";
-import styled from "styled-components";
+import { TextField } from "@mui/material";
 
-export const Input = ({ value, onChange, placeholder, ...rest }) => {
-  return (
-    <StyledInput
-      value={value}
-      onChange={onChange}
-      placeholder={placeholder}
-      {...rest}
-    />
-  );
+export const Input = ({ onChange, placeholder }) => {
+  return <TextField onChange={onChange} placeholder={placeholder} />;
 };
-
-const StyledInput = styled("input")({});

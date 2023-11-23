@@ -1,10 +1,14 @@
-import { MainPage } from "./pages/MainPage";
+import { Navbar } from "./components/Navbar";
+import { AuthContextProvider } from "./context/AuthContext";
+import { AppRoutes } from "./routes/AppRoutes";
 
 export function App() {
-
   return (
-    <div className="App">
-      <MainPage />
-    </div>
+    <>
+      <AuthContextProvider>
+        <Navbar/>
+        <AppRoutes />
+      </AuthContextProvider>
+    </>
   );
 }
