@@ -5,7 +5,8 @@ import GoogleButton from "react-google-button";
 import { UserAuth } from "../../context/AuthContext";
 
 export const SignIn = () => {
-  const { googleSignIn, logOut, user } = UserAuth();
+  const { googleSignIn } = UserAuth();
+
   const handleGoogleSignIn = async () => {
     try {
       await googleSignIn();
@@ -19,22 +20,11 @@ export const SignIn = () => {
 
   const onSubmit = (userData) => console.log(userData);
 
-  const handleLogOut = async () => {
-    try {
-      await logOut();
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   return (
     <SignUpForm component="form" onSubmit={handleSubmit(onSubmit)}>
       <input onChange={(e) => e.target.value} {...register("firstName")} />
       <button type="submit">click</button>
       <GoogleButton onClick={handleGoogleSignIn} />
-      {user?.displayName ? (
-        <button onClick={handleLogOut}>sign out</button>
-      ) : null}
     </SignUpForm>
   );
 };
