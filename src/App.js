@@ -1,10 +1,12 @@
-import { MainPage } from "./pages/MainPage";
+import { AuthContextProvider } from "./context/AuthContext";
+import { AppRoutes } from "./routes/AppRoutes";
 
 export function App() {
-
   return (
-    <div className="App">
-      <MainPage />
-    </div>
+    <>
+      <AuthContextProvider>
+        <AppRoutes />
+      </AuthContextProvider>
+    </>
   );
 }
